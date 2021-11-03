@@ -1,0 +1,1 @@
+nohup sudo node ./index.js >> ./output_mail.log 2>&1 & echo $! > .mail_to_gitlab_issues.pid
