@@ -53,9 +53,9 @@ var server = smtp.createServer(function (req) {
                 console.log(atRes);
               }
               if (content.indexOf('（可在附件中查看）') >= 0) {
-                content = content.replaceAll(new RegExp(atRes.alt + "（可在附件中查看）", "g"), atRes.markdown);
+                content = content.replace(new RegExp(atRes.alt + "（可在附件中查看）", "g"), atRes.markdown);
               } else {
-                content = content.replace(/<img.*?(?:>|\/>)/g, atRes.markdown)
+                content = content.replace(/<img.*?(?:>|\/>)/, atRes.markdown)
               }
               // content += '\n\n<hr />\n\n' + atRes.markdown
             }
