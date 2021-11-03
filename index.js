@@ -24,7 +24,7 @@ var server = smtp.createServer(function (req) {
         return;
       }
 
-      var proj_id = req.to[0].replaceAll(/\@.*$/g, '')
+      var proj_id = req.to[0].replace(/\@.*$/g, '')
       if (!proj_id) {
         console.log('proj_id is null');
         ack.reject();
