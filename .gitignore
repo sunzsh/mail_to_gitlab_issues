@@ -22,3 +22,5 @@ output_mail.log
 *.njsproj
 *.sln
 *.sw?
+
+.mail_to_gitlab_issues.pid
