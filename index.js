@@ -46,6 +46,7 @@ var server = smtp.createServer(function (req) {
             uploadAllAttachments.push(uploadfile(proj_id, gitlabToken, at.content, at.filename, at.contentType));
           }
 
+          
           Promise.all(uploadAllAttachments).then((resArr) => {
             for (let i = 0; i < resArr.length; i++) {
               const atRes = resArr[i];
@@ -53,11 +54,10 @@ var server = smtp.createServer(function (req) {
                 console.log(atRes);
               }
               if (content.indexOf('（可在附件中查看）') >= 0) {
-                content = content.replace(new RegExp(atRes.alt + "（可在附件中查看）", "g"), atRes.markdown);
+                content = content.replace(new RegExp(`((${parsed.attachments[i].filename.replace(/\./g, '\\.')})|(${atRes.alt}))（可在附件中查看）`, "g"), atRes.markdown);
               } else {
                 content = content.replace(/<img.*?(?:>|\/>)/, atRes.markdown)
               }
-              // content += '\n\n<hr />\n\n' + atRes.markdown
             }
 
             commitIssues(proj_id, gitlabToken, parsed.subject, content).then(res => {
