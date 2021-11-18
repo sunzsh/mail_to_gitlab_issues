@@ -42,7 +42,7 @@ var server = smtp.createServer(function (req) {
 
           for (let i = 0; i < parsed.attachments.length; i++) {
             const at = parsed.attachments[i];
-            console.log(at.filename);
+            console.log('处理附件：' + at.filename);
             uploadAllAttachments.push(uploadfile(proj_id, gitlabToken, at.content, at.filename, at.contentType));
           }
 
