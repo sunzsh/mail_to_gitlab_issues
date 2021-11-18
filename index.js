@@ -61,7 +61,7 @@ var server = smtp.createServer(function (req) {
             }
 
             commitIssues(proj_id, gitlabToken, parsed.subject, content).then(res => {
-              console.log(res);
+              console.log('\n创建成功：' + res.web_url);
             })
 
             console.log('from: ' + req.from);
