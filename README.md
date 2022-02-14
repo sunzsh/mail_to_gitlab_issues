@@ -21,6 +21,11 @@
 5. **查看日志文件：** `tail -f ./output_mail.log`
 6. **停止：** `./stop.sh`
 
+
+## 技巧（2022年02月15日 新增）
+在标题后面添加@xxxx，可以直接将任务分配给某人，其中的xxxx可以是fullname，也可以是username。并且最终的issues标题会自动去掉这部分
+> 例如标题是：“修改登录页面样式 @张三”，那么最终的issues标题为“修改登录页面样式”，并且直接将任务分配给张三
+
 ## 感谢
 * [substack/node-smtp-protocol](https://github.com/substack/node-smtp-protocol) 基于smtp协议的邮件服务nodejs版
 * [nodemailer/mailparser](https://github.com/nodemailer/mailparser) 邮件内容解析nodejs版
